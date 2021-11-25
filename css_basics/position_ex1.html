@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Example</title>
+    <style>
+        .box {
+            height: 15rem;
+            width: 15rem;
+            background-color: rgb(204, 77, 77);
+            margin: 1rem;
+        }
+
+        #b1 {
+            position: relative;
+            top: 5rem;
+            left: 5rem;
+            background-color: rebeccapurple;
+        }
+
+        #b2 {
+            position: fixed;
+            top: 0rem;
+            right: 0rem;
+            background-color: rgb(51, 104, 153);
+        }
+
+        #b3 {
+            position: relative;
+            top: 5rem;
+            left: 5rem;
+            background-color: rgb(51, 192, 58);
+        }
+
+        #b4 {
+            position: relative;
+            top: 5rem;
+            left: 5rem;
+            background-color: rgb(164, 32, 36);
+        }
+
+        button{
+            height: 3rem;
+            width: 3rem;
+            border-radius: 1.5rem;
+        }
+    
+        #b1 button {
+            position: absolute;
+            bottom: -.5rem;
+            right: -.5rem;
+        }
+        /* make #b2 button move to left bottom corner */
+        #b2 button{
+            position: absolute;
+            left:-.5rem;
+            bottom:-.5rem;
+        }
+        /* make #b3 button move to left top corner */
+        /* make #b4 button move to top right corner */
+        
+    </style>
+</head>
+
+<body>
+    <div id="b1" class="box"><button>box 1</button></div>
+    <div id="b2" class="box"><button>box 2</button></div>
+    <div id="b3" class="box"><button>box 3</button></div>
+    <div id="b4" class="box"><button>box 4</button></div>
+</body>
+
+</html>

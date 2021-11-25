@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Example</title>
+    <style>
+        .container {
+            background-color: #ffffff;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+            /* repeat kro saare items ko
+               auto-fill fill kro jitni jagah h ek row me
+               minmax min and max size har item ka
+            */
+            grid-gap: 1rem;
+        }
+
+        .box {
+            background-color: red;
+            height: 5rem;
+            border: 1px solid yellow;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>
