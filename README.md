@@ -5,3 +5,10 @@ Get what it takes to fabricate web applications with Django, work with informati
 Fabricate dynamic applications that pass information from customer to server. 
 Work with information by building and burning-through RESTful APIs. 
 Deploy your applications to the cloud.
+
+
+### Basic django setup:
+- pip install django
+- django-admin startproject projectname
+- code projectname
+- python manage.py runserver
