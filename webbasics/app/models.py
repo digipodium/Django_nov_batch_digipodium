@@ -12,10 +12,34 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-# create a model for Website News
-# headline
-# date
-# details
-# author
-# views -> IntegerField
+class News(models.Model):
+    headline = models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now=True)
+    details =models.TextField()
+    author = models.CharField(max_length=30, default="Zaid kamil")
+    views = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = "News"
+        verbose_name_plural = "News List"
+    
+
+    def __str__(self) -> str:
+        return self.headline
+
+
+class Contact(models.Model):
+    """Model definition for Contact."""
+
+    name = models.CharField(max_length=30)
+    mobile = models.CharField(max_length=10,help_text="mobile number should be of 10 digits")
+    email = models.EmailField()
+    message = models.TextField()
+    date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
+
+    def __str__(self):
+        return self.name

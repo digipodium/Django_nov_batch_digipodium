@@ -1,18 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from app.models import *
+from .forms import *
 
 # Create your views here.
 def home(request):
     articles = Article.objects.all()
-    # news = ...
+    newslist = News.objects.all()
     ctx = {
         'articles':articles,
-        #'news':news,
+        'news':newslist,
     }
     return render(request, "index.html", context=ctx)
 
 def contact(request):
-    return render(request, "contact.html", context={})
+    form = ContactForm()                        # blank form creation
+    if request.method == "POST":                # agar form bhar diya
+        form = ContactForm(request.POST)        # form create kro but user k input k sath
+        if form.is_valid():                     # agar sab badiya
+            form.save()                         # save the information to database
+            return redirect('/contact')         # reload the page or goto some page
+    ctx ={
+        'form': form
+    }
+    return render(request, "contact.html", context=ctx)
 
 def about(request):
     return render(request, "about.html", context={})

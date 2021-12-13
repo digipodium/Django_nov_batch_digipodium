@@ -50,7 +50,7 @@
         <div class="col-md-6">
             <div class="container my-4">
                 {% for item in articles %}
-                <div class="card my-4">
+                <div class="card my-4 ">
                     <div class="card-body">
                         <h5 class="card-title">{{item.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted ">{{item.subject}}</h6>
@@ -67,9 +67,44 @@
                 {% endfor %}
             </div>
         </div>
-        <!-- col-md-6 -->
-        <!-- loop -->
-        <!-- output -->
+        <div class="col-md-6">
+            <div class="container my-4">
+
+                {% for item in news %}
+                <div class="card my-4">
+                    <div class="card-header">
+                        <h3 class="card-title">{{item.headline}}</h3>
+
+                        <small>{{item.author}} {{item.date}}</small>
+
+                    </div>
+                    <div class="card-body">
+                        <p>{{item.details}}</p>
+                    </div>
+                </div>
+                {% empty %}
+
+                {% endfor %}
+
+            </div>
+        </div>
     </div>
 </div>
+
 {% endblock content %}
+
+
+{% block js %}
+
+<script>
+    $('.card').css({ 'transform': 'translateX(-200%)' });
+    $(function () {
+        anime({
+            targets: ".card",
+            translateX: '0',
+            duration: 3000,
+            delay: anime.stagger(100)
+        })
+    });
+</script>
+{% endblock js %}
