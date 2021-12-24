@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <article>
+                <img src="{{data.hero_img.url}}" alt="{{data.title}}" class="img-fluid" style="width:100vw">
+                <small>{{data.category}}</small>
+                <h2>{{data.title}}</h2>
+                <p>
+                    <small>{{data.user}}</small>
+                </p>
+                <hr>
+                <p>
+                    {{data.content|linebreaksbr}}
+                </p>
+                <span>{{data.date}}</span>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -8,9 +8,10 @@
         <div class="col-3 sidebar">
             <!-- List group -->
             <div class="list-group" id="myList" role="tablist">
-
+                <a class="list-group-item list-group-item-action" data-toggle="list" href="{% url 'index' %}">All</a>
                 {% for item in categories %}
-                <a class="list-group-item list-group-item-action " data-toggle="list" href="">
+                <a class="list-group-item list-group-item-action {% if fc == item.id %} active {% endif %}"
+                    data-toggle="list" href="?c={{item.id}}">
                     <img src="{{item.icon.url}}" alt="{{item.icon.url}}" style="height: 35px; padding:.4rem">
                     {{item}}
                 </a>
@@ -28,7 +29,7 @@
                     {% for item in articles %}
                     <div class="col-md-4 mb-3">
                         <div class="card">
-                            <a href="">
+                            <a href="{% url 'article' item.id %}">
                                 <img src="{{item.hero_img.url}}" style="aspect-ratio: 3/2;" class="card-img-top"
                                     alt="{{item.title}}">
                             </a>
@@ -36,7 +37,9 @@
                                 <a href="">
                                     <h5 class="card-title">{{item.title}}</h5>
                                 </a>
-                                <h6 class="card-subtitle mb-2 text-muted ">Author: {{item.user}}</h6>
+                                <a href="?a={{item.user.id}}">
+                                    <h6 class="card-subtitle mb-2 text-muted ">Author: {{item.user}}</h6>
+                                </a>
                                 <p class="card-text">
                                     {{item.content|truncatechars:150}}
                                     <a href="">read more</a>
