@@ -1,8 +1,15 @@
 {% extends 'layout/base.html' %}
-
+{% load static %}
 
 {% block content %}
-
+<style>
+    body {
+        background-image: url("{% static 'images/bg1.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
 <div class="container mt-5">
     <div class="row pt-5">
         <div class="col-3 sidebar">
@@ -19,8 +26,6 @@
                 <a class="list-group-item list-group-item-action " data-toggle="list" href="">No Categories Yet</a>
                 {% endfor %}
             </div>
-
-
         </div>
         <div class="col-9 articles">
             <div class="container">
@@ -34,7 +39,7 @@
                                     alt="{{item.title}}">
                             </a>
                             <div class="card-body">
-                                <a href="">
+                                <a href="{% url 'article' item.id %}">
                                     <h5 class="card-title">{{item.title}}</h5>
                                 </a>
                                 <a href="?a={{item.user.id}}">
@@ -42,7 +47,7 @@
                                 </a>
                                 <p class="card-text">
                                     {{item.content|truncatechars:150}}
-                                    <a href="">read more</a>
+                                    <a href="{% url 'article' item.id %}">read more</a>
                                 </p>
                             </div>
                         </div>
