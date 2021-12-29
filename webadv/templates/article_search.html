@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container m-5">
+    <div class="row m-4">
+        <div class="col-8">
+            <h1>Search result for {{query}}</h1>
+            <small>{{result_count}} results found</small>
+            {% for record in results %}
+            <p>{{record.title}}</p>
+            <p>{{record.content}}</p>
+            {% empty %}
+            <h3>No result found</h3>
+            {% endfor %}
+        </div>
+    </div>
+    {{date_results}}
+</div>
+
+{% endblock content %}
