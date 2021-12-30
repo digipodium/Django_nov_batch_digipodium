@@ -1,0 +1,29 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+<style>
+    .loginwrapper {
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(28, 107, 255);
+    }
+</style>
+<div class="container-fluid loginwrapper">
+    <div class="card" style='width:30rem'>
+        <div class="card-header bg-warning text-white text-center">
+            <h3 class="card-title">Login to account</h3>
+        </div>
+        <div class="card-body">
+            <form method="POST" role="form">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
