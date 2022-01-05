@@ -1,0 +1,46 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+<style>
+    .loginwrapper {
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(28, 107, 255);
+    }
+
+    .errorlist {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .errorlist li {
+        color: red;
+        font-size: small;
+    }
+</style>
+<div class="container-fluid loginwrapper">
+    <div class="card" style='width:30rem'>
+        <div class="card-header border-0 shadow-lg bg-success text-white text-center">
+            <h3 class="card-title">Create a free account</h3>
+        </div>
+        <div class="card-body">
+
+            {% if msg %}
+            <div class="alert alert-secondary">
+                {{msg}}
+            </div>
+            {% endif %}
+
+            <form method="POST" role="form">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success">Register Now</button>
+                <a href="{% url 'login' %}" class="btn text-primary">Already have account</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
