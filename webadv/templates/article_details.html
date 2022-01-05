@@ -1,5 +1,5 @@
 {% extends 'layout/base.html' %}
-
+{% load humanize %}
 {% block content %}
 <div class="container">
     <div class="row">
@@ -15,7 +15,9 @@
                 <p>
                     {{data.content|linebreaksbr}}
                 </p>
-                <span>{{data.date}}</span>
+                <span><b>
+                        {{data.date | naturaltime}}
+                    </b></span>
             </article>
         </div>
     </div>

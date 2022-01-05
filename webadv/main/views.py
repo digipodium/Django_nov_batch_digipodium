@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -14,8 +15,11 @@ def index(request):
     else:
         articles = Article.objects.all()
 
+    paginator = Paginator(articles, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     ctx = {
-        'articles': articles,
+        'articles': page_obj,
         'categories' : categories,
         'fc': int(filter_cat),
     }
